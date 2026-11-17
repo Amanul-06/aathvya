@@ -1,31 +1,46 @@
+
 import Link from "next/link";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import CartCount from "@/components/CartCount";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Navbar() {
   return (
     <>
       <AnnouncementBar />
-      <header className="site-header">
-        <details className="mobile-menu">
-          <summary aria-label="Open navigation"><span></span><span></span></summary>
-          <nav className="mobile-menu-panel">
+
+      <header className="site-header site-header-floating">
+        <div className="nav-pill">
+          <details className="nav-mobile-menu">
+            <summary aria-label="Open navigation menu">
+              <span />
+              <span />
+            </summary>
+
+            <nav className="nav-mobile-panel" aria-label="Mobile navigation">
+              <Link href="/">Home</Link>
+              <Link href="/collections">Collections</Link>
+              <Link href="/search">Discover</Link>
+            </nav>
+          </details>
+
+          <BrandLogo />
+
+          <nav className="nav-pill-links" aria-label="Main navigation">
             <Link href="/">Home</Link>
             <Link href="/collections">Collections</Link>
             <Link href="/search">Discover</Link>
           </nav>
-        </details>
-        <nav className="desktop-nav">
-          <Link href="/collections">Collections</Link>
-          <Link href="/search">Discover</Link>
-        </nav>
-        <Link href="/" className="wordmark" aria-label="House of Aathvya home">
-          <span>HOUSE OF</span>
-          <strong>AATHVYA</strong>
-        </Link>
-        <div className="header-actions">
-          <Link href="/search" className="header-text-link">Search</Link>
-          <Link href="/cart" className="bag-link">Bag <CartCount /></Link>
+
+          <div className="nav-pill-actions">
+            <Link href="/search" className="nav-search">
+              Search
+            </Link>
+
+            <Link href="/cart" className="nav-bag">
+              Bag <span className="nav-cart-count"><CartCount /></span>
+            </Link>
+          </div>
         </div>
       </header>
     </>
