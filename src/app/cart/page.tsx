@@ -37,7 +37,7 @@ export default function CartPage() {
             <span className="cart-loading-mark">A.</span>
             <p>Preparing your selection...</p>
           </div>
-        ) : lines.length === 0 ? (
+        ) : !cart || lines.length === 0 ? (
           <section className="cart-empty">
             <span className="cart-empty-mark">A.</span>
             <span className="eyebrow">NOTHING JUST YET</span>
